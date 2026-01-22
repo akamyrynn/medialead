@@ -117,3 +117,26 @@
   font-style: normal;
   font-display: swap;
 }
+@font-face {
+  font-family: "Loos ExtraWide";
+  src: url("/fonts/fonnts.com-Loos_ExtraWide_Black.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Loos ExtraWide";
+  src: url("/fonts/fonnts.com-Loos_ExtraWide_Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Loos Wide";
+  src: url("/fonts/fonnts.com-Loos_Wide_Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}

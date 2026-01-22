@@ -38,36 +38,30 @@ h2,
 h3,
 h4 {
   text-transform: uppercase;
-  font-family: "Big Shoulders Display", Impact, "Arial Black", sans-serif !important;
+  font-family: "Loos ExtraWide", Impact, "Arial Black", sans-serif !important;
   font-weight: 900 !important;
   line-height: 0.9;
   letter-spacing: -0.125rem;
 }
 
-h1 {
-  font-size: 8rem;
-}
-
-h2 {
-  font-size: 6rem;
-  letter-spacing: -0.2rem;
-}
-
-h3 {
-  font-size: 5rem;
-  letter-spacing: -0.15rem;
-}
-
-h4 {
-  font-size: 4rem;
-  letter-spacing: -0.1rem;
-}
+/* ... */
 
 p {
-  font-family: "PP Neue Montreal";
+  font-family: "Loos Wide", sans-serif;
   font-size: 1.25rem;
-  font-weight: 400;
+  font-weight: 300;
+  /* Using Light weight available */
   line-height: 1.2;
+}
+
+/* ... */
+
+/* Update specific overrides if needed */
+.studio-header .container .studio-header-row h1 {
+  font-size: 8vw;
+  color: var(--base-100);
+  font-family: "Loos ExtraWide", Impact, "Arial Black", sans-serif !important;
+  font-weight: 900 !important;
 }
 
 p.lg {
@@ -291,4 +285,6 @@ p.cap {
   .studio-header .container .studio-header-row h1 {
     font-size: 12rem;
   }
-}/* force update */
+}
+
+/* force update */

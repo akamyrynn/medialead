@@ -51,9 +51,9 @@
 }
 
 .logo-title {
-    font-family: "Big Shoulders Display", sans-serif;
+    font-family: "Loos ExtraWide", sans-serif;
     /* Or custom font from design */
-    font-weight: 800;
+    font-weight: 900;
     /* Bold */
     font-size: 1.5rem;
     line-height: 1;
@@ -62,40 +62,25 @@
     color: #fff;
 }
 
-.logo-title .dot {
-    color: #f489f2;
-    /* Pink accent */
-}
+/* ... */
 
 .logo-subtitle {
-    font-family: "PP Neue Montreal", sans-serif;
+    font-family: "Loos Wide", sans-serif;
     font-size: 0.65rem;
+    font-weight: 300;
     color: rgba(255, 255, 255, 0.7);
     letter-spacing: 0.02em;
 }
 
-/* Nav */
-/* Nav */
-.new-header-nav {
-    display: flex !important;
-    align-items: center !important;
-    gap: 1.25rem !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    position: absolute !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    width: 800px !important;
-    justify-content: center !important;
-}
+/* ... */
 
 .new-nav-link,
 .new-nav-item {
     color: #fff !important;
     text-decoration: none !important;
-    font-family: "PP Neue Montreal", sans-serif !important;
+    font-family: "Loos Wide", sans-serif !important;
     font-size: 0.85rem !important;
-    font-weight: 500 !important;
+    font-weight: 300 !important;
     cursor: pointer;
     transition: opacity 0.3s ease;
     display: flex !important;
@@ -103,33 +88,7 @@
     gap: 0.25rem !important;
 }
 
-.new-nav-link:hover,
-.new-nav-item:hover {
-    opacity: 0.7 !important;
-}
-
-.dropdown-arrow {
-    color: rgba(255, 255, 255, 0.5);
-}
-
-/* Actions */
-.header-actions {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.search-btn {
-    background: transparent;
-    border: none;
-    color: #fff;
-    font-size: 1.25rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.5rem;
-}
+/* ... */
 
 .kp-btn {
     background: transparent;
@@ -137,17 +96,14 @@
     border-radius: 2rem;
     padding: 0.5rem 1.25rem;
     color: #fff;
-    font-family: "PP Neue Montreal", sans-serif;
+    font-family: "Loos Wide", sans-serif;
     font-size: 0.9rem;
-    font-weight: 500;
+    font-weight: 300;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
-.kp-btn:hover {
-    border-color: #fff;
-    background: rgba(255, 255, 255, 0.1);
-}
+/* ... */
 
 .contact-btn {
     background: #fff;
@@ -155,9 +111,10 @@
     border-radius: 2rem;
     padding: 0.5rem 1.25rem;
     color: #000;
-    font-family: "PP Neue Montreal", sans-serif;
+    font-family: "Loos Wide", sans-serif;
     font-size: 0.9rem;
     font-weight: 600;
+    /* keeping 600 (browser faux bold) or 300 if strict */
     cursor: pointer;
     display: flex;
     align-items: center;
