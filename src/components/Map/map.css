@@ -1,0 +1,27 @@
+.world-map-svg {
+	width: 100%;
+	height: auto;
+	display: block;
+}
+
+/* Dots styling - white base */
+.world-map-svg .dots circle {
+	fill: #ffffff !important;
+	transition: fill 0.3s ease;
+}
+
+/* Highlighted/active dots - pink accent */
+.world-map-svg .dots circle:hover {
+	fill: #f489f2;
+}
+
+.world-map-svg .dots circle.active,
+.world-map-svg .dots circle.highlight {
+	fill: #f489f2;
+}
+
+/* Gradient for map background glow */
+.world-map-svg .accent-glow {
+	fill: #f489f2;
+	opacity: 0.3;
+}

@@ -1,0 +1,71 @@
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100svh;
+  background-color: #ffffff;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  will-change: clip-path;
+  overflow: hidden;
+  z-index: 9999;
+}
+
+.progress-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 7px;
+  background-color: var(--base-500);
+  transform: scaleX(0);
+  transform-origin: left;
+  will-change: transform;
+}
+
+.preloader-header {
+  position: fixed;
+  width: 100%;
+  height: 100svh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-origin: top;
+  will-change: transform;
+  z-index: 10000;
+  pointer-events: none;
+}
+
+.preloader-header h1 {
+  text-transform: uppercase;
+  font-size: 15vw;
+  line-height: 1;
+  font-family: "Big Shoulders Display", Impact, "Arial Black", sans-serif !important;
+  font-weight: 900 !important;
+  color: #000000;
+  text-decoration: none;
+  opacity: 0;
+  letter-spacing: -0.5rem;
+}
+
+.preloader-header .char-mask {
+  display: inline-block;
+  overflow: hidden;
+}
+
+.preloader-header .char {
+  display: inline-block;
+}
+
+@media (max-width: 1000px) {
+  .preloader-header h1 {
+    font-size: 12vw;
+    letter-spacing: -0.2rem;
+  }
+}
+
+@media (min-width: 2400px) {
+  .preloader-header h1 {
+    font-size: 20rem;
+  }
+}

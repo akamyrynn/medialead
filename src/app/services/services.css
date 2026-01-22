@@ -1,0 +1,301 @@
+.services-page {
+    width: 100%;
+    min-height: 100vh;
+    padding-top: 15vh;
+    padding-bottom: 5rem;
+    background-color: #000;
+    /* Dark background as in design context (though header looks gradient), keeping consistent with site */
+    background: linear-gradient(180deg, #1a0b2e 0%, #000000 100%);
+    /* Slight purple tint at top like image */
+}
+
+/* Header */
+.services-hero {
+    margin-bottom: 4rem;
+    position: relative;
+}
+
+.services-hero h1 {
+    font-family: "Big Shoulders Display", Impact, "Arial Black", sans-serif !important;
+    font-weight: 900 !important;
+    text-transform: uppercase;
+    font-size: 8rem;
+    color: #ffffff;
+    margin: 0;
+    line-height: 1;
+}
+
+.services-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #ffffff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 2rem;
+    margin-top: 1rem;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.services-hero-badge .dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: #f489f2;
+    /* Pink dot */
+    border-radius: 50%;
+}
+
+.services-hero-badge p {
+    color: #000000;
+    font-family: "PP Neue Montreal", sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* Filters */
+.services-filters {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.search-bar {
+    flex: 1;
+    min-width: 300px;
+    background-color: #ffffff;
+    border-radius: 2rem;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.search-icon {
+    color: #ff6e14;
+    /* Orange search icon from image vibe or brand */
+    font-size: 1.5rem;
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-family: "PP Neue Montreal", sans-serif;
+    font-size: 1rem;
+    color: #000000;
+}
+
+.search-bar input::placeholder {
+    color: #ccc;
+}
+
+.categories-list {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.category-pill {
+    border: none;
+    padding: 1rem 1.5rem;
+    border-radius: 2rem;
+    background-color: #ffffff;
+    color: #000000;
+    font-family: "PP Neue Montreal", sans-serif;
+    font-weight: 500;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.category-pill.active {
+    background-color: #ff3b30;
+    /* Red active state from image */
+    color: #ffffff;
+}
+
+/* Grid */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.service-item-card {
+    background-color: #ffffff;
+    border-radius: 2rem;
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease;
+    min-height: 480px;
+}
+
+.service-item-card:hover {
+    transform: translateY(-5px);
+}
+
+.card-icon-wrapper {
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+/* Pink Globe Simulation */
+.pink-globe {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #ff9a9e, #fad0c4);
+    /* Or simple SVG styling */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.globe-svg {
+    width: 120px;
+    height: 120px;
+}
+
+.globe-svg stop:first-child {
+    stop-color: #ffffff;
+}
+
+.globe-svg stop:last-child {
+    stop-color: #ff3b30;
+}
+
+/* Let's make the SVG gradient properly */
+#grad1 stop:first-child {
+    stop-color: #ff9a9e;
+    opacity: 1;
+}
+
+#grad1 stop:last-child {
+    stop-color: #f489f2;
+    opacity: 1;
+}
+
+.card-content h3 {
+    font-family: "Big Shoulders Display", Impact, sans-serif !important;
+    font-weight: 900 !important;
+    font-size: 2rem;
+    color: #000000;
+    text-transform: uppercase;
+    margin: 0 0 0.5rem 0;
+}
+
+.card-content .description {
+    font-family: "PP Neue Montreal", sans-serif;
+    font-size: 0.9rem;
+    color: #666;
+    /* Gray text */
+    margin: 0;
+    line-height: 1.4;
+}
+
+.card-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: auto;
+    /* Push to bottom */
+    width: 100%;
+}
+
+.tag {
+    border: 1px solid #e5e5e5;
+    border-radius: 1rem;
+    padding: 0.35rem 0.75rem;
+    font-size: 0.75rem;
+    color: #000000;
+    font-family: "Geist Mono", monospace;
+    text-transform: uppercase;
+}
+
+.card-footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 1rem;
+}
+
+.price {
+    font-family: "Big Shoulders Display", sans-serif;
+    font-weight: 900;
+    font-size: 1.5rem;
+    color: #000000;
+    text-transform: uppercase;
+}
+
+.price .prefix {
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-right: 0.25rem;
+    vertical-align: middle;
+    font-family: "PP Neue Montreal", sans-serif;
+}
+
+.arrow-btn {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    border: 1px solid #e5e5e5;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #000;
+    transition: all 0.3s ease;
+}
+
+.arrow-btn:hover {
+    background-color: #000;
+    color: #fff;
+    border-color: #000;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .services-filters {
+        flex-direction: column;
+    }
+
+    .search-bar {
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .services-hero h1 {
+        font-size: 4rem;
+    }
+}

@@ -1,0 +1,155 @@
+"use client";
+import "./Preloader.css";
+import React, { useRef, useState, useEffect } from "react";
+import gsap from "gsap";
+import { SplitText } from "gsap/SplitText";
+import CustomEase from "gsap/CustomEase";
+import { useGSAP } from "@gsap/react";
+import { useLenis } from "lenis/react";
+
+gsap.registerPlugin(useGSAP, SplitText, CustomEase);
+CustomEase.create("hop", "0.9, 0, 0.1, 1");
+
+export let isInitialLoad = true;
+
+const Preloader = () => {
+  const preloaderRef = useRef(null);
+  const [showPreloader, setShowPreloader] = useState(isInitialLoad);
+  const [loaderAnimating, setLoaderAnimating] = useState(false);
+  const lenis = useLenis();
+
+  useEffect(() => {
+    return () => {
+      isInitialLoad = false;
+    };
+  }, []);
+
+  useEffect(() => {
+    if (lenis) {
+      if (loaderAnimating) {
+        lenis.stop();
+      } else {
+        lenis.start();
+      }
+    }
+  }, [lenis, loaderAnimating]);
+
+  useGSAP(
+    () => {
+      if (!showPreloader) return;
+      setLoaderAnimating(true);
+
+      const waitForFonts = async () => {
+        try {
+          await document.fonts.ready;
+          const customFonts = ["Big Shoulders Display"];
+          const fontCheckPromises = customFonts.map((fontFamily) => {
+            return document.fonts.check(`16px ${fontFamily}`);
+          });
+          await Promise.all(fontCheckPromises);
+          await new Promise((resolve) => setTimeout(resolve, 100));
+          return true;
+        } catch (error) {
+          await new Promise((resolve) => setTimeout(resolve, 200));
+          return true;
+        }
+      };
+
+      const initializeAnimation = async () => {
+        await waitForFonts();
+
+        gsap.set(".preloader-header h1", { opacity: 0 });
+
+        const preloaderHeaderSplit = SplitText.create(".preloader-header h1", {
+          type: "chars",
+          charsClass: "char",
+          mask: "chars",
+        });
+
+        const chars = preloaderHeaderSplit.chars;
+
+        chars.forEach((char, index) => {
+          gsap.set(char, { yPercent: index % 2 === 0 ? -100 : 100 });
+        });
+
+        gsap.set(".preloader-header h1", { opacity: 1 });
+
+        const tl = gsap.timeline({ delay: 0.25 });
+
+        tl.to(".progress-bar", {
+          scaleX: 1,
+          duration: 3,
+          ease: "power3.inOut",
+        })
+          .set(".progress-bar", { transformOrigin: "right" })
+          .to(".progress-bar", {
+            scaleX: 0,
+            duration: 1,
+            ease: "power3.in",
+          });
+
+        tl.to(
+          chars,
+          {
+            yPercent: 0,
+            duration: 1,
+            ease: "hop",
+            stagger: 0.025,
+          },
+          "-=3.5"
+        );
+
+        tl.to(
+          chars,
+          {
+            yPercent: (index) => (index % 2 === 0 ? 100 : -100),
+            duration: 1,
+            ease: "hop",
+            stagger: 0.025,
+          },
+          "-=1"
+        );
+
+        tl.to(
+          ".preloader",
+          {
+            clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+            duration: 1.75,
+            ease: "hop",
+            onStart: () => {
+              gsap.set(".preloader", { pointerEvents: "none" });
+            },
+            onComplete: () => {
+              setTimeout(() => {
+                setLoaderAnimating(false);
+                setShowPreloader(false);
+              }, 100);
+            },
+          },
+          "-=0.5"
+        );
+      };
+
+      initializeAnimation();
+    },
+    { scope: preloaderRef, dependencies: [showPreloader] }
+  );
+
+  if (!showPreloader) {
+    return null;
+  }
+
+  return (
+    <>
+      <div className="preloader" ref={preloaderRef}>
+        <div className="progress-bar"></div>
+      </div>
+
+      <div className="preloader-header">
+        <h1>MEDIA LEAD</h1>
+      </div>
+    </>
+  );
+};
+
+export default Preloader;
